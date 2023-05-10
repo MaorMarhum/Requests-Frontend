@@ -9,7 +9,7 @@ import Manager from "./Manager";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 const HomePage = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
