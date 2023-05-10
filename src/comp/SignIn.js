@@ -29,7 +29,7 @@ const SignIn = ({ setName }) => {
     axios.post(`${API_BASE_URL}/users/login`, {
       email: email,
       password: password,
-    },)
+    }, {withCredentials: true})
       .then((response) => {
         if (response.status === 200) {
           setName(response.data.name);
