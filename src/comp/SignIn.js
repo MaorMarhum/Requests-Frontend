@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
@@ -8,7 +8,7 @@ const SignIn = ({ setName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -33,8 +33,8 @@ const SignIn = ({ setName }) => {
       .then((response) => {
         if (response.status === 200) {
           setName(response.data.name);
-          // history.push("/home");
-          // window.location.reload();
+          history.push("/home");
+          window.location.reload();
         } else {
           throw new Error("there is not a user");
         }

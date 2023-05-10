@@ -77,11 +77,11 @@ const HomePage = () => {
         <Route path="/signup" component={SignUp} />
         <Route
           path="/home"
-          component={() => <UserHome id={id} name={name} setName={setName} />}
+          render={() => <UserHome id={id} name={name} setName={setName} />}
         />
         <Route
           path="/new"
-          component={() => <NewRequest id={id} name={name} setName={setName} />}
+          render={() => <NewRequest id={id} name={name} setName={setName} />}
         />
         <Route path="/manager" id={id} component={Manager} />
       </Switch>
