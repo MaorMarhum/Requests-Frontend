@@ -20,8 +20,6 @@ const HomePage = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response)
-        console.log(response.data[0].name);
         setName(response.data[0].name);
         setId(response.data[0].id);
       })
