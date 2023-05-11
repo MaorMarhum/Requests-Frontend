@@ -26,6 +26,7 @@ const NewRequest = ({ name, setName, id }) => {
         .then((response) => {
           if (response.status === 200) {
             setName("");
+            Cookies.remove('token');
             history.push("/");
           }
         })

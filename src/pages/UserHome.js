@@ -20,6 +20,7 @@ const UserHome = ({ name, setName, id }) => {
         })
         .then((response) => {
           if (response.status === 200) {
+            Cookies.remove('token');
             setName("");
             history.push("/");
           }
