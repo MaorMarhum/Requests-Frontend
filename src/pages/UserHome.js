@@ -31,11 +31,11 @@ const UserHome = ({ name, setName, id }) => {
   };
   /* eslint-enable no-restricted-globals */
 
-  useEffect(() => {
-    if (!name) {
-      history.push("/");
-    }
-  }, [name, history]);
+  // useEffect(() => {
+  //   if (!name) {
+  //     history.push("/");
+  //   }
+  // }, [name, history]);
 
   return (
     <>
