@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { Typography, Grid, Paper, Button, TextField } from "@mui/material";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import Cookies from 'js-cookie';
 
 const NewRequest = ({ name, setName, id }) => {
   const [title, setTitle] = useState("");

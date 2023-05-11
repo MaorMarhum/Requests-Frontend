@@ -4,6 +4,8 @@ import { useHistory, Link } from "react-router-dom";
 import Requests from "../comp/Requests";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import Cookies from 'js-cookie';
+
 
 const UserHome = ({ name, setName, id }) => {
   const history = useHistory();
