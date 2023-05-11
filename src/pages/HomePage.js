@@ -20,6 +20,7 @@ const HomePage = () => {
         withCredentials: true,
       })
       .then((response) => {
+        console.log(response)
         setName(response.data.user.name);
         setId(response.data.user.id);
       })
