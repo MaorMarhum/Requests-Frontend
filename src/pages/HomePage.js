@@ -21,8 +21,8 @@ const HomePage = () => {
       })
       .then((response) => {
         console.log(response)
-        setName(response.data.user.name);
-        setId(response.data.user.id);
+        setName(response.data.name);
+        setId(response.data.id);
       })
       .catch((error) => console.log(error));
   }, []);
