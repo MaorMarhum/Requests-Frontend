@@ -23,7 +23,8 @@ const Requests = ({ id, setMessage }) => {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
-    axios
+    if (id) {
+      axios
       .get(`${API_BASE_URL}/requests/${id}`)
       .then((response) => {
         setRequests(response.data.requests);
@@ -33,6 +34,7 @@ const Requests = ({ id, setMessage }) => {
         console.error(error);
         setLoading(false);
       });
+    }
   }, [id]);
   /* eslint-disable no-restricted-globals */
   const deleteRequest = (id) => {
