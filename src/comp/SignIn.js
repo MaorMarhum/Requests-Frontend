@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { TextField, Typography, Button } from "@mui/material";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import Cookies from "js-cookie";
 
 const SignIn = ({ setName }) => {
   const [email, setEmail] = useState("");
@@ -26,12 +27,21 @@ const SignIn = ({ setName }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post(`${API_BASE_URL}/users/login`, {
-      email: email,
-      password: password,
-    }, {withCredentials: true})
+    axios
+      .post(
+        `${API_BASE_URL}/users/login`,
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
         if (response.status === 200) {
+          Cookies.set("token", response.data.token, {
+            expires: 1, // cookie will be removed after 1 day
+            sameSite: "lax",
+          });
           setName(response.data.name);
           history.push("/home");
           window.location.reload();
