@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 import axios from "axios";
 import { API_BASE_URL } from "../config";
 
-const UserHome = ({ name, setName, id }) => {
+const UserHome = ({ name, setName, id, setId }) => {
   const history = useHistory();
   const [message, setMessage] = useState("");
   /* eslint-disable no-restricted-globals */
