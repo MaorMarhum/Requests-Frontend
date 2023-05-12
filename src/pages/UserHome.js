@@ -32,6 +32,7 @@ const UserHome = ({ name, setName, id }) => {
       Cookies.remove('token')
       setName("");
       history.push("/");
+      window.location.reload()
     }
   };
   /* eslint-enable no-restricted-globals */
