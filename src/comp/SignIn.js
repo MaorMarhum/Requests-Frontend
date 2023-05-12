@@ -39,8 +39,8 @@ const SignIn = ({ setName }) => {
       .then((response) => {
         if (response.status === 200) {
           setName(response.data.name);
-          history.push("/home");
-          window.location.reload();
+          // history.push("/home");
+          // window.location.reload();
         } else {
           throw new Error("there is not a user");
         }
