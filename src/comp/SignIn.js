@@ -38,10 +38,6 @@ const SignIn = ({ setName }) => {
       )
       .then((response) => {
         if (response.status === 200) {
-          Cookies.set("token", response.data.token, {
-            expires: 1,
-            sameSite: "lax",
-          });
           setName(response.data.name);
           history.push("/home");
           window.location.reload();

@@ -13,26 +13,22 @@ const UserHome = ({ name, setName, id }) => {
   /* eslint-disable no-restricted-globals */
   const logout = () => {
     if (confirm("אתה בטוח שאתה רוצה להתנתק?")) {
-      // axios
-      //   .post(`${API_BASE_URL}/users/logout`, {}, {
-      //     withCredentials: true,
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   })
-      //   .then((response) => {
-      //     if (response.status === 200) {
-      //       Cookies.remove('token');
-      //       setName("");
-      //       history.push("/");
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
-      setName('')
-      Cookies.remove('token')
-      history.push('/')
+      axios
+        .post(`${API_BASE_URL}/users/logout`, {}, {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            setName("");
+            history.push("/");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
   /* eslint-enable no-restricted-globals */
