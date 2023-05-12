@@ -8,15 +8,17 @@ import NewRequest from "./NewRequest";
 import Manager from "./Manager";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import Cookies from "js-cookie";
 
 axios.defaults.withCredentials = true;
 const HomePage = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
+  const [token, setToken] = useState(Cookies.get('token'))
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/users/user`, {
+      .post(`${API_BASE_URL}/users/user`,{token: token}, {
         withCredentials: true,
       })
       .then((response) => {
