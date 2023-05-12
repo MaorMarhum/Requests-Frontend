@@ -14,11 +14,10 @@ axios.defaults.withCredentials = true;
 const HomePage = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
-  const [token, setToken] = useState(Cookies.get('token'))
 
   useEffect(() => {
     axios
-      .post(`${API_BASE_URL}/users/user`,{token: token}, {
+      .post(`${API_BASE_URL}/users/user`,{token: Cookies.get('token')}, {
         withCredentials: true,
       })
       .then((response) => {
