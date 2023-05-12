@@ -20,6 +20,18 @@ const UserHome = ({ name, setName, id }) => {
   /* eslint-enable no-restricted-globals */
 
   useEffect(() => {
+    axios
+      .post(`${API_BASE_URL}/users/user`,{token: Cookies.get('token')}, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        setName(response.data[0].name);
+        setId(response.data[0].id);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
     if (!name) {
       history.push("/");
     }
