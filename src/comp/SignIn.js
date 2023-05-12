@@ -37,7 +37,7 @@ const SignIn = ({ setName }) => {
       )
       .then((response) => {
         if (response.status === 200) {
-          Cookies.set(('token', response.data.token, { expires: 1, secure: true }))
+          Cookies.set('token', response.data.token, { expires: 1, secure: true })
           setName(response.data.name);
           history.push("/home");
           window.location.reload();
