@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Typography, Grid, Paper, Button } from "@mui/material";
 import { useHistory, Link } from "react-router-dom";
 import Requests from "../comp/Requests";
-import axios from "axios";
-import { API_BASE_URL } from "../config";
 import Cookies from 'js-cookie';
 
 
@@ -13,22 +11,6 @@ const UserHome = ({ name, setName, id }) => {
   /* eslint-disable no-restricted-globals */
   const logout = () => {
     if (confirm("אתה בטוח שאתה רוצה להתנתק?")) {
-      // axios
-      //   .post(`${API_BASE_URL}/users/logout`, {}, {
-      //     withCredentials: true,
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   })
-      //   .then((response) => {
-      //     if (response.status === 200) {
-      //       setName("");
-      //       history.push("/");
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
       Cookies.remove('token')
       setName("");
       history.push("/");

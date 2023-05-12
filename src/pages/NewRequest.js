@@ -13,26 +13,10 @@ const NewRequest = ({ name, setName, id }) => {
   /* eslint-disable no-restricted-globals */
   const logout = () => {
     if (confirm("אתה בטוח שאתה רוצה להתנתק?")) {
-      axios
-        .post(
-          `${API_BASE_URL}/users/logout`,
-          {},
-          {
-            withCredentials: true,
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.status === 200) {
-            setName("");
-            history.push("/");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      Cookies.remove('token')
+      setName("");
+      history.push("/");
+      window.location.reload()
     }
   };
   /* eslint-enable no-restricted-globals */
