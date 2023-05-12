@@ -29,7 +29,7 @@ const HomePage = () => {
 
   const renderHomePage = () => {
     if (name) {
-      return <UserHome id={id} name={name} setName={setName} />;
+      return <UserHome id={id} name={name} setName={setName} setId={setId} />;
     }
     return (
       <Grid
@@ -78,7 +78,7 @@ const HomePage = () => {
         <Route path="/signup" component={SignUp} />
         <Route
           path="/home"
-          render={() => <UserHome id={id} name={name} setName={setName} />}
+          render={() => <UserHome setId={setId} id={id} name={name} setName={setName} />}
         />
         <Route
           path="/new"

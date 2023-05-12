@@ -3,7 +3,8 @@ import { Typography, Grid, Paper, Button } from "@mui/material";
 import { useHistory, Link } from "react-router-dom";
 import Requests from "../comp/Requests";
 import Cookies from 'js-cookie';
-
+import axios from "axios";
+import { API_BASE_URL } from "../config";
 
 const UserHome = ({ name, setName, id }) => {
   const history = useHistory();
