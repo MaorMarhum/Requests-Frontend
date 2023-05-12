@@ -29,7 +29,7 @@ const UserHome = ({ name, setName, id }) => {
       //   .catch((error) => {
       //     console.log(error);
       //   });
-      Cookies.remove()
+      Cookies.remove('token')
       setName("");
       history.push("/");
     }
